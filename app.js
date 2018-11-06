@@ -35,7 +35,7 @@ const oidc = new ExpressOIDC({
     },
     callback: {
       path: "/users/callback",
-      defaultRedirect: "/dashboard"
+      defaultRedirect: "/"
     }
   }
 });
