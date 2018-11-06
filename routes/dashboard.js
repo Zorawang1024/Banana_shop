@@ -5,7 +5,7 @@ const router = express.Router();
 // Display the dashboard
 
 router.get("/", (req, res) => {
-  res.render("login");
+  res.render("index");
 });
 
 module.exports = router;
