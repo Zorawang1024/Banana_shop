@@ -1,18 +1,24 @@
 
- 
  //main
  $(document).ready(function(e) {
-   console.log('Hello');
-
-   var x= document.getElementsByClassName("add-to-cart");
   
-    $(x).click(function(){
-      alert('Item added to your cart!');
+    
+    $("#opener").click(function() {
+      $.ajax({
+        url: "/api/products",
+        method: "GET"
+      }).done(function(msg) {
+      
+        console.log(msg);
+        
+        
+      }).fail(function(data, status){
+      alert(status);
+      }); 
     });
 
-  
-
- }); // end ready
+  });
+   // end ready
  
  
  
