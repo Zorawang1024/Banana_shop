@@ -3,13 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Banana Shop</title>
-     <link rel="stylesheet" href="stylesheets/store.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="stylesheets/store.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!--Ajax-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+
+    <!--Main js-->
+    <script src="javascripts/store.js"></script>
+
 </head>
+
+
+
+
+
+
 <body>
     <!--Main NavBar starts-->
    <nav  class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="../index.html">Group12</a>
+  <a class="navbar-brand" href="index.html">Group12</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -17,7 +36,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="../index.html">Home </a>
+        <a class="nav-link" href="index.html">Home </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="store.html">Product <span class="sr-only">(current)</span></a>
@@ -27,7 +46,7 @@
           Contact us
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">022-XXX-XXXX</a>
+          <a class="dropdown-item" href="#">022-222-3333</a>
           <a class="dropdown-item" href="#">banana@gmail.com</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">#Instagram</a>
@@ -75,29 +94,42 @@
    <!--Side bar ends-->
 
 <div class="main">
+
+
+<!-- add to cart dialog box here -->
+
   <h2>Main shopping page</h2>
   <p>Should implement the main functionalities. e.g. Login tab, Sign-up tab, Cart, Filter....</p>
+  <a href="cart.html"><button>View my Cart</button></a>
+
+  <button id="opener">open the dialog</button>
+  <div id="dialog1" title="Dialog Title" hidden="hidden">I'm a dialog</div>
+
   <div class="items">
   <p><img  class="itemImage" src="images/item.png" alt=""> Banana A <a href="#"><img class="add-to-cart" src="../_images/Add-to-cart.png" alt=""></a></p>
   </div>
   <div class="items">
-  <p><img  class="itemImage" src="../_images/item.png" alt=""> Banana B <a href="#"><img class="add-to-cart" src="../_images/Add-to-cart.png" alt=""></a></p>
+  <p><img  class="itemImage" src="images/item.png" alt=""> Banana B <a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
   </div>
   <div class="items">
-  <p><img  class="itemImage" src="../_images/item.png" alt=""> Banana C <a href="#"><img class="add-to-cart" src="../_images/Add-to-cart.png" alt=""></a></p>
+  <p><img  class="itemImage" src="images/item.png" alt=""> Banana C <a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
   </div>
   <div class="items">
-  <p><img  class="itemImage" src="../_images/item.png" alt=""> Banana D <a href="#"><img class="add-to-cart" src="../_images/Add-to-cart.png" alt=""></a></p>
+  <p><img  class="itemImage" src="images/item.png" alt=""> Banana D <a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
   </div>
   <div class="items">
-  <p><img  class="itemImage" src="../_images/item.png" alt=""> Banana E <a href="#"><img class="add-to-cart" src="../_images/Add-to-cart.png" alt=""></a></p>
+  <p><img  class="itemImage" src="images/item.png" alt=""> Banana E <a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
   </div>
   <div class="items">
-  <p><img  class="itemImage" src="../_images/item.png" alt=""> Banana F <a href="#"><img class="add-to-cart" src="../_images/Add-to-cart.png" alt=""></a></p>
+  <p><img  class="itemImage" src="images/item.png" alt=""> Banana F <a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
   </div>
-
-
 </div>
+
+
+
+
+
+
 
 
 
@@ -121,6 +153,7 @@ for (i = 0; i < dropdown.length; i++) {
     }
   });
 }
+
 </script>
 </body>
 
