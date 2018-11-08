@@ -159,8 +159,6 @@ app.get('/api/products', async (req, res) => {
 
 
 
-
-
 app.get('/', (req, res) => res.render('pages/index'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
