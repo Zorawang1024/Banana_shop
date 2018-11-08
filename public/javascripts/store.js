@@ -2,8 +2,16 @@
  //main
  $(document).ready(function(e) {
   
+    $( "#dialog1" ).dialog({
+      autoOpen: false
+    });
     
     $("#opener").click(function() {
+
+      
+      $("#dialog1").dialog('open');
+
+
       $.ajax({
         url: "/api/products",
         method: "GET"
@@ -15,8 +23,11 @@
       }).fail(function(data, status){
       alert(status);
       }); 
-    });
 
+
+
+    });
+    
   });
    // end ready
  
