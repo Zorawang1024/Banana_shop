@@ -107,9 +107,9 @@ module.exports = app;
 // for CART
 //Dependencies
 const Joi = require('joi');
-const express = require('express')
-const path = require('path')
-const bodyParser= require('body-parser')
+// const express = require('express')
+// const path = require('path')
+// const bodyParser= require('body-parser')
 const PORT = process.env.PORT || 8080
 
 var urlencodedParser= bodyParser.urlencoded({extended: false});
@@ -128,22 +128,22 @@ app
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
-  
-  
-  
-  
+
+
+
+
   //**************GET********************/
 app.get('/api/products', async (req, res) => {
   try {
     const client = await pool.connect()
-    var result = await client.query('SELECT * FROM product_table');   
-   
+    var result = await client.query('SELECT * FROM product_table');
+
     if (!result) {
       return res.send('No data found');
       }else{
       result.rows.forEach(row=>{
       console.log(row);
-      }); 
+      });
       }
 
   res.send(result.rows);
@@ -161,15 +161,3 @@ app.get('/api/products', async (req, res) => {
 
 app.get('/', (req, res) => res.render('pages/index'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
-
-
-
-  
-
-
-
-
-
-
-
-
