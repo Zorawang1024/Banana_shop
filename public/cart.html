@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>CART</title>
-     <link rel="stylesheet" href="stylesheets/store.css">
+    <link rel="stylesheet" href="stylesheets/store.css">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -17,23 +19,135 @@
 </head>
 
 <body onload="Load()">
-    <div id="cart">
-        <h1>My CART</h1>
-        <!-- add button here -->
-        <button id="clear">Clear All</button>
-        
-        <h2>products added:</h2>
-        <ul id="cart-list" class="sortlist">
-        </ul>
-  </div>
 
-<script>
+    <!--Main NavBar starts-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Group12</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-</script>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="store.html">Product </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Contact us
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">022-XXX-XXXX</a>
+                        <a class="dropdown-item" href="#">banana@gmail.com</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">#Instagram</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Account
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="login.html">Log in</a>
+                        <a class="dropdown-item" href="signUp.html">Sign up</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Need Help?</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <!--Main NavBar ends-->
+
+    <div class="cart" id="cart">
+        <h1>My Cart</h1>
+
+        <div class="basket_empty">
+
+                <img src="./images/cart.png" class="avatar"></img>
+    
+                <h2 style="margin-top:0px;">Your cart is empty!</h2>
+                <p><a href="store.html" class="link">Continue shopping</a></p>
+        </div>
+
+        <div class="basket_items">
+            <table class="basket_items">
+                <thead>
+                    <tr class="basket_item_header">
+                        <th></th>
+                        <th class="product_name_title">Product Name</th>
+                        <th width="150" align="right">Unit Price</th>
+                        <th>Quantity</th>
+                        <th class="basket_item_total" style="width:120px;" align="right">Total</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody class="item">
+                    <tr id="basket_item_6221778" data-additional="" data-additional-generated="false">
+
+                        <td class="product_img">
+                            <a href="**PRODUCT LINK**"><img src="./images/Banana-Cartoon.png" class="product_image"></a>
+                        </td>
+
+                        <td class="product_name">
+                            <a href="**PRODUCT LINK**" class="product_name link">Yellow Banana</a>
+                        </td>
+
+                        <td class="product_price">
+                            <span class="price">$1.99 /kg</span>
+                        </td>
+
+                        <td class="product_quantity">
+                            <span class="ui-spinner ui-corner-all ui-widget ui-widget-content"><input type="number" name="basket_item[6221778]"
+                                    value="1" class="basket_item_quantity ui-spinner-input" data-line-id="6221778" min="1" max="9999"
+                                    aria-valuemin="1" aria-valuemax="9999" aria-valuenow="1" autocomplete="off" role="spinbutton"><a
+                                    tabindex="-1" aria-hidden="true" class="ui-button ui-widget ui-spinner-button ui-spinner-up ui-corner-tr ui-button-icon-only"
+                                    role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-n"></span><span class="ui-button-icon-space">
+                                    </span></a><a tabindex="-1" aria-hidden="true" class="ui-button ui-widget ui-spinner-button ui-spinner-down ui-corner-br ui-button-icon-only"
+                                    role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-s"></span><span class="ui-button-icon-space">
+                                    </span></a></span>
+                        </td>
+
+                        <td class="product_price">
+                            <span class="basket_item_price_value">
+                                <span class="price">$1.99</span>
+                            </span>
+                        </td>
+
+                        <td>
+                            <button type="submit" class="basket_item_remove" name="remove" value="6221778">
+                                <img src="./images/Remove_Item_icon.png" title="Remove from cart" class="remove_image">
+                            </button>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script>
+
+    </script>
 </body>
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
 </html>
