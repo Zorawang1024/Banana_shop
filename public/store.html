@@ -87,9 +87,8 @@
      <div class="main">
         <!-- add to cart dialog box here -->
         
-          <h2>Main shopping page</h2>
+          <h2>Main shopping page<a href="cart.html"><button>View my Cart</button></a></h2>
           <p>Should implement the main functionalities. e.g. Login tab, Sign-up tab, Cart, Filter....</p>
-          <a href="cart.html"><button>View my Cart</button></a>
         
           
           <div id="add-dialog" title="ADD TO CART" hidden="hidden">Do you want this item to be added into your shopping cart?</div>
@@ -120,11 +119,13 @@
 
 
 
-
-
-
-
 <script>
+function Load(){
+  console.log('Welcome');
+  alert('Welcome');
+}
+
+
  //main
  $(document).ready(function(e) {
 
@@ -146,6 +147,7 @@
     }).done(function(msg) {
     
       console.log(msg);
+
       
     }).fail(function(data, status){
     alert(status);
