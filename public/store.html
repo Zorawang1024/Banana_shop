@@ -1,130 +1,119 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Banana Shop</title>
+<meta charset="UTF-8">
+<title>Store</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="stylesheets/store.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link href="css/jquery-ui.min.css" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
 
 
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-ui.min.js"></script>
-
-    <!--Main js-->
-    <script src="javascripts/store.js"></script>
-
-    <link rel="stylesheet" href="stylesheets/store.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  
 
 </head>
-
-
-
-
-
-
-<body>
-    <!--Main NavBar starts-->
-   <nav  class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="index.html">Group12</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">Home </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="store.html">Product <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Contact us
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">022-222-3333</a>
-          <a class="dropdown-item" href="#">banana@gmail.com</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">#Instagram</a>
-        </div>
+<body  onload="Load()">
+ <!--Main NavBar starts-->
+ <nav  class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Group12</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="store.html">Product <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Account
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="login.html">Log in</a>
-          <a class="dropdown-item" href="signUp.html">Sign up</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Need Help?</a>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Contact us
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">022-222-3333</a>
+            <a class="dropdown-item" href="#">banana@gmail.com</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">#Instagram</a>
+          </div>
+          </li>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="login.html">Log in</a>
+            <a class="dropdown-item" href="signUp.html">Sign up</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Need Help?</a>
+          </div>
+          </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+      <!--Main NavBar ends-->
+  
+  
+  
+  
+     <!--Side bar starts-->
+     <div class="sidenav">
+    <a href="#about">About</a>
+    <a href="#services">Size</a>
+    <a href="#clients">Origin</a>
+    <a href="#contact">Flavour</a>
+    <button class="dropdown-btn">Colour
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-container">
+      <a href="#">Yellow</a>
+      <a href="#">Deep orange</a>
+      <a href="#">Red</a>
+    </div>
+    <a href="#contact">Search</a>
+     </div>
+     <!--Side bar ends-->
+
+
+
+     <div class="main">
+        <!-- add to cart dialog box here -->
+        
+          <h2>Main shopping page</h2>
+          <p>Should implement the main functionalities. e.g. Login tab, Sign-up tab, Cart, Filter....</p>
+          <a href="cart.html"><button>View my Cart</button></a>
+        
+          
+          <div id="add-dialog" title="ADD TO CART" hidden="hidden">Do you want this item to be added into your shopping cart?</div>
+        
+          <div class="items">
+          <p><img  class="itemImage" src="images/item.png" alt=""> Banana A <a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
+          </div>
+          <div class="items">
+          <p><img  class="itemImage" src="images/item.png" alt=""> Banana B <a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
+          </div>
+          <div class="items">
+          <p><img  class="itemImage" src="images/item.png" alt=""> Banana C <a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
+          </div>
+          <div class="items">
+          <p><img  class="itemImage" src="images/item.png" alt=""> Banana D <a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
+          </div>
+          <div class="items">
+          <p><img  class="itemImage" src="images/item.png" alt=""> Banana E <a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
+          </div>
+          <div class="items">
+          <p><img  class="itemImage" src="images/item.png" alt=""> Banana F <a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
+          </div>
         </div>
-        </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
-    <!--Main NavBar ends-->
-
-
-
-
-   <!--Side bar starts-->
-   <div class="sidenav">
-  <a href="#about">About</a>
-  <a href="#services">Size</a>
-  <a href="#clients">Origin</a>
-  <a href="#contact">Flavour</a>
-  <button class="dropdown-btn">Colour
-    <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdown-container">
-    <a href="#">Yellow</a>
-    <a href="#">Deep orange</a>
-    <a href="#">Red</a>
-  </div>
-  <a href="#contact">Search</a>
-   </div>
-   <!--Side bar ends-->
-
-
-
-
-<div class="main">
-<!-- add to cart dialog box here -->
-
-  <h2>Main shopping page</h2>
-  <p>Should implement the main functionalities. e.g. Login tab, Sign-up tab, Cart, Filter....</p>
-  <a href="cart.html"><button>View my Cart</button></a>
-
-  <button id="opener">open the dialog</button>
-  <div id="dialog1" title="Dialog Title" hidden="hidden">I'm a dialog</div>
-
-  <div class="items">
-  <p><img  class="itemImage" src="images/item.png" alt=""> Banana A <a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
-  </div>
-  <div class="items">
-  <p><img  class="itemImage" src="images/item.png" alt=""> Banana B <a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
-  </div>
-  <div class="items">
-  <p><img  class="itemImage" src="images/item.png" alt=""> Banana C <a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
-  </div>
-  <div class="items">
-  <p><img  class="itemImage" src="images/item.png" alt=""> Banana D <a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
-  </div>
-  <div class="items">
-  <p><img  class="itemImage" src="images/item.png" alt=""> Banana E <a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
-  </div>
-  <div class="items">
-  <p><img  class="itemImage" src="images/item.png" alt=""> Banana F <a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
-  </div>
-</div>
-
-
-
+  
 
 
 
@@ -136,6 +125,41 @@
 
 
 <script>
+ //main
+ $(document).ready(function(e) {
+
+  var x= document.getElementsByClassName('add-to-cart');
+  
+  $( "#add-dialog" ).dialog({
+    autoOpen: false
+  });
+  
+  $(x).click(function() {
+    $("#add-dialog").dialog('open');
+
+
+
+
+    $.ajax({
+      url: "/api/products",
+      method: "GET"
+    }).done(function(msg) {
+    
+      console.log(msg);
+      
+    }).fail(function(data, status){
+    alert(status);
+    }); 
+
+  });
+  
+});
+ // end ready
+
+
+
+
+
 /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
 var dropdown = document.getElementsByClassName("dropdown-btn");
 var i;
@@ -151,12 +175,9 @@ for (i = 0; i < dropdown.length; i++) {
     }
   });
 }
-
 </script>
+
+
 </body>
 
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </html>
