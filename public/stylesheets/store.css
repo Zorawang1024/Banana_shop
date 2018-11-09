@@ -13,11 +13,6 @@ body {
     width: 20%;
 }
 
-
-
-
-
-
 /* Fixed sidenav, full height */
 .sidenav {
     height: 100%;
@@ -83,3 +78,69 @@ body {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }
+
+/* text links */
+.link:link, .link:visited {
+    text-decoration: none;
+    color: #1278A5;
+}
+
+/* cart block */
+.cart {
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+/* cart image */
+img.avatar {
+    width: 4%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* basket empty */
+.basket_empty {
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #E2E3DE;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* all cart items */
+.basket_items {
+    border: 1px solid #E2E3DE;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* items in table */
+.item {
+    box-sizing: border-box;
+    text-align: left;
+}
+
+/* product image */
+img.product_image {
+    width: 120px;
+    height: 90px;
+    padding: 5%;
+}
+
+/* remove image */
+img.remove_image {
+    width: 10px;
+    height: 10px;
+}
+
+/* remove item button */
+.basket_item_remove {
+    cursor: pointer;
+    text-rendering: auto;
+}
+
+/* cart item headers */
+.basket_item_header {
+    background-color: darkgrey;
+}
+
