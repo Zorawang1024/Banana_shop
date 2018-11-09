@@ -131,28 +131,24 @@ function Load(){
 
   var x= document.getElementsByClassName('add-to-cart');
   
-  $( "#add-dialog" ).dialog({
-    autoOpen: false
-  });
+  $( "#add-dialog" ).dialog({ modal : true, autoOpen : false });
   
   $(x).click(function() {
     $("#add-dialog").dialog('open');
+  });
 
-
-
-
-    $.ajax({
-      url: "/api/products",
-      method: "GET"
-    }).done(function(msg) {
+    //DIALOG 
+    $('#add-dialog').dialog({ modal: true, autoOpen:false,
+    buttons: {
+    "Confirm": function() {
+    //AJAX FOR ADD (POST)
+    $.post("/api/products",{"user_name":userName, "task":taskName, "complete":Boolean(c)} , function(data, status){
+    })
+    $(this).dialog('close');
+    },
     
-      console.log(msg);
-
-      
-    }).fail(function(data, status){
-    alert(status);
-    }); 
-
+    "Cancel": function() { $(this).dialog('close'); }
+  }
   });
   
 });
