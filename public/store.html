@@ -18,6 +18,48 @@
   .items :hover{
     background-color: yellow;
   }
+
+
+
+  .filterDiv {
+  float: left;
+  background-color: rgba(175, 211, 175, 0.842);
+  color: #1b0202;
+  width: 100%;
+  line-height: 100px;
+  text-align: center;
+  margin: 2px;
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.container {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+
+
 </style>
 
 <body  onload="Load()">
@@ -95,38 +137,40 @@
           <h2>Banana Market</h2>
           <p>Enjoy your shopping experience! Please login to personalise your cart. <a href="cart.html"><button>View my Cart</button></a></p>
         
+      <div id="myBtnContainer">
+        <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+        <button class="btn" onclick="filterSelection('green')"> Green</button>
+        <button class="btn" onclick="filterSelection('yellow')"> Yellow</button>
+        <button class="btn" onclick="filterSelection('brown')"> Brown</button>
+        <button class="btn" onclick="filterSelection('emotion')"> Emotion</button>
+        <button class="btn" onclick="filterSelection('fairy')"> Fairy</button>
+        <button class="btn" onclick="filterSelection('general')"> General</button>
+       </div>
+
+    <div class="container">
+  <div class="filterDiv yellow general"><p><img  class="itemImage" src="images/cute.jpg" alt=""> Cute banana    1.49/kg<a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p></div>
+  <div class="filterDiv green general"><p><img  class="itemImage" src="images/green.png" alt=""> Green Banana    2.99/kg<a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p></div>
+  <div class="filterDiv emotion general yellow"><p><img  class="itemImage" src="images/crazy.png" alt=""> Crazy banana    2.59/kg<a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p></div>
+  <div class="filterDiv brown general"><p><img  class="itemImage" src="images/brown.png" alt=""> Brown banana    1.99/kg<a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p></div>
+  <div class="filterDiv fairy yellow"><p><img  class="itemImage" src="images/angel.png" alt=""> Angel banana    3.99/kg<a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p></div>
+    </div>
+
           
-          <div id="add-dialog" title="ADD TO CART">
+            <div id="add-dialog" title="ADD TO CART">
               <form>
                   <p id='item_target'></p>
                   Quantity(kg): <input type="text" name="quantity" value="1"><br>
               </form>
               </div>
-        
-          <div class="items">
-          <p><img  class="itemImage" src="images/cute.jpg" alt=""> Cute banana    1.49/kg<a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
-          </div>
-          <div class="items">
-          <p><img  class="itemImage" src="images/green.png" alt=""> Green Banana    2.99/kg<a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
-          </div>
-          <div class="items">
-          <p><img  class="itemImage" src="images/crazy.png" alt=""> Crazy banana    2.59/kg<a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
-          </div>
-          <div class="items">
-          <p><img  class="itemImage" src="images/brown.png" alt=""> Brown banana    1.99/kg<a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
-          </div>
-          <div class="items">
-          <p><img  class="itemImage" src="images/angel.png" alt=""> Angel banana    3.99/kg<a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
-          </div>
-          
+      
+
+
         </div>
   
 
 
 
-
-
-
+<!--JS-->
 <script>
 function Load(){
   alert('Welcome! Please login to personalise your cart.');
@@ -183,7 +227,53 @@ for (i = 0; i < dropdown.length; i++) {
     }
   });
 }
+
 </script>
+
+<script>
+  filterSelection("all")
+  function filterSelection(c) {
+    var x, i;
+    x = document.getElementsByClassName("filterDiv");
+    if (c == "all") c = "";
+    for (i = 0; i < x.length; i++) {
+      w3RemoveClass(x[i], "show");
+      if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+    }
+  }
+  
+  function w3AddClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+      if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+    }
+  }
+  
+  function w3RemoveClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+      while (arr1.indexOf(arr2[i]) > -1) {
+        arr1.splice(arr1.indexOf(arr2[i]), 1);     
+      }
+    }
+    element.className = arr1.join(" ");
+  }
+  
+  // Add active class to the current button (highlight it)
+  var btnContainer = document.getElementById("myBtnContainer");
+  var btns = btnContainer.getElementsByClassName("btn");
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function(){
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
+  }
+  </script>
 
 
 </body>
