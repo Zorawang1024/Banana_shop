@@ -3,17 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Store</title>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="stylesheets/store.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link href="css/jquery-ui.min.css" rel="stylesheet">
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery-ui.min.js"></script>
-
-
-
 </head>
+<!--Temporary CSS-->
+<style>
+  .itemImage{
+    width: 5em;
+  }
+  .items :hover{
+    background-color: yellow;
+  }
+</style>
+
 <body  onload="Load()">
  <!--Main NavBar starts-->
  <nav  class="navbar navbar-expand-lg navbar-light bg-light">
@@ -35,7 +41,7 @@
             Contact us
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">022-222-3333</a>
+            <a class="dropdown-item" href="#">022-123-1234</a>
             <a class="dropdown-item" href="#">banana@gmail.com</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">#Instagram</a>
@@ -75,8 +81,8 @@
     </button>
     <div class="dropdown-container">
       <a href="#">Yellow</a>
-      <a href="#">Deep orange</a>
-      <a href="#">Red</a>
+      <a href="#">Brown</a>
+      <a href="#">Green</a>
     </div>
     <a href="#contact">Search</a>
      </div>
@@ -86,31 +92,33 @@
 
      <div class="main">
         <!-- add to cart dialog box here -->
-        
-          <h2>Main shopping page<a href="cart.html"><button>View my Cart</button></a></h2>
-          <p>Should implement the main functionalities. e.g. Login tab, Sign-up tab, Cart, Filter....</p>
+          <h2>Banana Market</h2>
+          <p>Enjoy your shopping experience! Please login to personalise your cart. <a href="cart.html"><button>View my Cart</button></a></p>
         
           
-          <div id="add-dialog" title="ADD TO CART" hidden="hidden">Do you want this item to be added into your shopping cart?</div>
+          <div id="add-dialog" title="ADD TO CART">
+              <form>
+                  <p id='item_target'></p>
+                  Quantity(kg): <input type="text" name="quantity" value="1"><br>
+              </form>
+              </div>
         
           <div class="items">
-          <p><img  class="itemImage" src="images/item.png" alt=""> Banana A <a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
+          <p><img  class="itemImage" src="images/cute.jpg" alt=""> Cute banana    1.49/kg<a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
           </div>
           <div class="items">
-          <p><img  class="itemImage" src="images/item.png" alt=""> Banana B <a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
+          <p><img  class="itemImage" src="images/green.png" alt=""> Green Banana    2.99/kg<a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
           </div>
           <div class="items">
-          <p><img  class="itemImage" src="images/item.png" alt=""> Banana C <a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
+          <p><img  class="itemImage" src="images/crazy.png" alt=""> Crazy banana    2.59/kg<a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
           </div>
           <div class="items">
-          <p><img  class="itemImage" src="images/item.png" alt=""> Banana D <a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
+          <p><img  class="itemImage" src="images/brown.png" alt=""> Brown banana    1.99/kg<a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
           </div>
           <div class="items">
-          <p><img  class="itemImage" src="images/item.png" alt=""> Banana E <a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
+          <p><img  class="itemImage" src="images/angel.png" alt=""> Angel banana    3.99/kg<a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
           </div>
-          <div class="items">
-          <p><img  class="itemImage" src="images/item.png" alt=""> Banana F <a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p>
-          </div>
+          
         </div>
   
 
@@ -121,8 +129,7 @@
 
 <script>
 function Load(){
-  console.log('Welcome');
-  alert('Welcome');
+  alert('Welcome! Please login to personalise your cart.');
 }
 
 
@@ -130,20 +137,23 @@ function Load(){
  $(document).ready(function(e) {
 
   var x= document.getElementsByClassName('add-to-cart');
-  
+  //initialise the dialog
   $( "#add-dialog" ).dialog({ modal : true, autoOpen : false });
   
   $(x).click(function() {
+    var name= $(this).parents('p').text(); //search for the targeted item name
+    document.getElementById('item_target').innerText= name; //place and show this target name in the dialog
     $("#add-dialog").dialog('open');
   });
 
+
     //DIALOG 
-    $('#add-dialog').dialog({ modal: true, autoOpen:false,
+    $('#add-dialog').dialog({ 
+    modal: true, 
+    autoOpen:false,
     buttons: {
     "Confirm": function() {
     //AJAX FOR ADD (POST)
-    $.post("/api/products",{"user_name":userName, "task":taskName, "complete":Boolean(c)} , function(data, status){
-    })
     $(this).dialog('close');
     },
     
