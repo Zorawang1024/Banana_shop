@@ -4,7 +4,7 @@ const router = express.Router();
 
 // Home page
 router.get("/", (req, res) => {
-  res.render("index");
+  res.render("cart.html");
 });
 
 module.exports = router;

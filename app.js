@@ -12,9 +12,10 @@ var logger = require('morgan');
 var okta = require("@okta/okta-sdk-nodejs");
 var ExpressOIDC = require("@okta/oidc-middleware").ExpressOIDC;
 
-var publicRouter = require('./routes/public');
-var dashboardRouter = require('./routes/dashboard');
-const usersRouter = require("./routes/users");
+var homeRouter = require('./routes/home');
+var storeRouter = require('./routes/store');
+var cartRouter = require('./routes/cart');
+var usersRouter = require("./routes/users");
 
 var app = express();
 
@@ -50,9 +51,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', publicRouter);
-app.use('/dashboard', dashboardRouter);
+app.use('/', homeRouter);
+app.use('/store', storeRouter);
 app.use('/users', usersRouter);
+app.use('/cart', loginRequired, cartRouter);
 
 app.use(session({
   secret: '7b23f897hy34ybrrxiuhbfdrfgs',
@@ -100,5 +102,3 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-
-

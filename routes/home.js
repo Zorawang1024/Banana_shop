@@ -1,11 +1,10 @@
-const express = require("express");
+const express = require('express');
 
 const router = express.Router();
 
-// Display the dashboard
-
+// Home page
 router.get("/", (req, res) => {
-  res.render("index");
+  res.render("store.html");
 });
 
 module.exports = router;
