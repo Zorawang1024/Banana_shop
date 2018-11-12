@@ -63,7 +63,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', homeRouter);
 app.use('/store', storeRouter);
 app.use('/users', usersRouter);
-app.use('/cart', loginRequired, cartRouter);
+app.use('/cart', cartRouter);
 
 app.use(session({
   secret: '7b23f897hy34ybrrxiuhbfdrfgs',
