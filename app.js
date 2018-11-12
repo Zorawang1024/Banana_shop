@@ -106,11 +106,31 @@ function isLoggedIn(req, res, next){
 
 //isLoggedIn test
 
+ //*******Andy DB******GET REQUEST*********************/
 app.get('/api/logged', async (req, res) => {
+  try {
+    const client = await pool.connect()
+    var result = await client.query('SELECT * FROM cart_table;');
+
+    if (!result) {
+      return res.send('No data found');
+      }else{
+      result.rows.forEach(row=>{
+      console.log(row);
+      });
+      }
+
   if(!req.user){
     res.send('unlogged');
-  }else{
+  }
+  else{
     res.send('logged');
+  }
+  client.release();
+
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
   }
 });
 
