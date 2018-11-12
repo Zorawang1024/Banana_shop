@@ -178,11 +178,16 @@ function Load(){
       url: "/api/products",
       method: "GET"
     }).done(function(msg) {
+<<<<<<< HEAD
+      console.log(msg);
+      
+=======
 
       for(i=0; i< msg.length; i++){
         console.log(msg);
       }
 
+>>>>>>> 6a634d7cdc41242d7b3a50c79fc91fac2aa8414a
     }).fail(function(data, status){
     alert(status);
     });
