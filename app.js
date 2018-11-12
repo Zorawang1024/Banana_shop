@@ -15,8 +15,10 @@ var ExpressOIDC = require("@okta/oidc-middleware").ExpressOIDC;
 var homeRouter = require('./routes/home');
 var storeRouter = require('./routes/store');
 var cartRouter = require('./routes/cart');
-var usersRouter = require('./routes/users');
+var usersRouter = require("./routes/users");
 
+
+var urlencodedParser= bodyParser.urlencoded({extended: false});
 const { Pool } = require('pg');
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -46,7 +48,7 @@ const oidc = new ExpressOIDC({
     },
     callback: {
       path: "/users/callback",
-      defaultRedirect: "/store.html"
+      defaultRedirect: "/"
     }
   }
 });
@@ -90,7 +92,7 @@ app.use((req, res, next) => {
 
 function loginRequired(req, res, next) {
   if (!req.user) {
-    next();
+    return res.status(401).render("unauthenticated");
   }
   next();
 }
@@ -98,11 +100,11 @@ function loginRequired(req, res, next) {
 
 
 
- //*******Andy:DB part******GET REQUEST*********************/
+ //*******Andy DB******GET REQUEST*********************/
 app.get('/api/products', async (req, res) => {
   try {
     const client = await pool.connect()
-    var result = await client.query('SELECT * FROM product_table;');   
+    var result = await client.query('SELECT * FROM cart_table;');   
    
     if (!result) {
       return res.send('No data found');
@@ -120,25 +122,26 @@ app.get('/api/products', async (req, res) => {
     res.send("Error " + err);
   }
 });
-//*****Andy: DB part******POST Request*************//
+
+
+//******Andy DB*****POST Request*************/
 app.post('/api/products',urlencodedParser, async (req,res)=>{
- try {
-   const client = await pool.connect();
-
-   var result = await client.query("insert into product_table values('"+req.body.user_name+"','"+req.body.task+"', "+req.body.complete+");");   
-   if (!result) {
-        return res.send("POST Failure");
-      } else {
-        console.log("successful");
-      }
-      res.send(result.rows);
-      client.release();
-    } catch (err) {
-      console.error(err);
-      res.send("Error " + err);
- }
-});
-
+  try {
+    const client = await pool.connect();  
+    
+    var result = await client.query('insert into cart_table values ('+req.body.cart_id+', '+req.body.item_id+', '+req.body.item_quantity+');' );   
+    if (!result) {
+         return res.send("POST Failure");
+       } else {
+         console.log("successful");
+       }
+       res.send(result.rows);
+       client.release();
+     } catch (err) {
+       console.error(err);
+       res.send("Error " + err);
+  }
+ });
 
 
 
