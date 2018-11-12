@@ -17,7 +17,17 @@ var storeRouter = require('./routes/store');
 var cartRouter = require('./routes/cart');
 var usersRouter = require('./routes/users');
 
+const { Pool } = require('pg');
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true
+});
+
+
 var app = express();
+
+
+
 
 var oktaClient = new okta.Client({
   orgUrl: 'https://dev-310068.oktapreview.com',
@@ -85,6 +95,37 @@ function loginRequired(req, res, next) {
   next();
 }
 
+
+
+
+ //*************GET REQUEST*********************/
+app.get('/api/products', async (req, res) => {
+  try {
+    const client = await pool.connect()
+    var result = await client.query('SELECT * FROM product_table;');   
+   
+    if (!result) {
+      return res.send('No data found');
+      }else{
+      result.rows.forEach(row=>{
+      console.log(row);
+      }); 
+      }
+
+  res.send(result.rows);
+  client.release();
+
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+});
+
+
+
+
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -100,5 +141,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+
+
 
 module.exports = app;
