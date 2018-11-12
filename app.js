@@ -28,9 +28,6 @@ const pool = new Pool({
 
 var app = express();
 
-
-
-
 var oktaClient = new okta.Client({
   orgUrl: 'https://dev-310068.oktapreview.com',
   token: '00bJYd0L3NzL4txuaD70VRA-FPr-QwxWiiNz2I3090'
@@ -48,7 +45,7 @@ const oidc = new ExpressOIDC({
     },
     callback: {
       path: "/users/callback",
-      defaultRedirect: "/"
+      defaultRedirect: "/store"
     }
   }
 });

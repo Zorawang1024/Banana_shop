@@ -69,7 +69,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-  
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
@@ -108,10 +108,10 @@
     </div>
   </nav>
       <!--Main NavBar ends-->
-  
-  
-  
-  
+
+
+
+
      <!--Side bar starts-->
      <div class="sidenav">
     <a href="#about">About</a>
@@ -135,8 +135,8 @@
      <div class="main">
         <!-- add to cart dialog box here -->
           <h2>Banana Market</h2>
-          <p>Enjoy your shopping experience! Please login to personalise your cart. <a href="cart.html"><button>View my Cart</button></a></p>
-        
+          <p>Enjoy your shopping experience! Please login to personalise your cart. <a href="cart"><button>View my Cart</button></a></p>
+
       <div id="myBtnContainer">
         <button class="btn active" onclick="filterSelection('all')"> Show all</button>
         <button class="btn" onclick="filterSelection('green')"> Green</button>
@@ -155,18 +155,18 @@
   <div class="filterDiv fairy yellow"><p>5<img  class="itemImage" src="images/angel.png" alt=""> Angel banana    3.99/kg<a href="#"><img class="add-to-cart" src="images/Add-to-cart.png" alt=""></a></p></div>
     </div>
 
-          
+
             <div id="add-dialog" title="ADD TO CART">
               <form>
                   <p id='item_target'></p>
                   Quantity(kg): <input type="number" name="quantity" id="Q_value" value=1><br>
               </form>
               </div>
-      
+
 
 
         </div>
-  
+
 
 
 
@@ -178,8 +178,16 @@ function Load(){
       url: "/api/products",
       method: "GET"
     }).done(function(msg) {
+<<<<<<< HEAD
       console.log(msg);
       
+=======
+
+      for(i=0; i< msg.length; i++){
+        console.log(msg);
+      }
+
+>>>>>>> 6a634d7cdc41242d7b3a50c79fc91fac2aa8414a
     }).fail(function(data, status){
     alert(status);
     });
@@ -202,7 +210,7 @@ function Load(){
   var x= document.getElementsByClassName('add-to-cart');
   //initialise the dialog
   $( "#add-dialog" ).dialog({ modal : true, autoOpen : false });
-  
+
 
   $(x).click(function() {
     var name= $(this).parents('p').text(); //search for the targeted item name
@@ -211,9 +219,9 @@ function Load(){
   });
 
 
-    //DIALOG 
-    $('#add-dialog').dialog({ 
-    modal: true, 
+    //DIALOG
+    $('#add-dialog').dialog({
+    modal: true,
     autoOpen:false,
     buttons: {
     "Confirm": function() {
@@ -223,16 +231,16 @@ function Load(){
     console.log(item_id);
     $.post("/api/products",{"cart_id":999, "item_id":item_id, "item_quantity":quan} , function(data, status){
     });
-    
+
 
 
     $(this).dialog('close');
     },
-    
+
     "Cancel": function() { $(this).dialog('close'); }
   }
   });
-  
+
 });
  // end ready
 
@@ -269,7 +277,7 @@ for (i = 0; i < dropdown.length; i++) {
       if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
     }
   }
-  
+
   function w3AddClass(element, name) {
     var i, arr1, arr2;
     arr1 = element.className.split(" ");
@@ -278,19 +286,19 @@ for (i = 0; i < dropdown.length; i++) {
       if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
     }
   }
-  
+
   function w3RemoveClass(element, name) {
     var i, arr1, arr2;
     arr1 = element.className.split(" ");
     arr2 = name.split(" ");
     for (i = 0; i < arr2.length; i++) {
       while (arr1.indexOf(arr2[i]) > -1) {
-        arr1.splice(arr1.indexOf(arr2[i]), 1);     
+        arr1.splice(arr1.indexOf(arr2[i]), 1);
       }
     }
     element.className = arr1.join(" ");
   }
-  
+
   // Add active class to the current button (highlight it)
   var btnContainer = document.getElementById("myBtnContainer");
   var btns = btnContainer.getElementsByClassName("btn");
