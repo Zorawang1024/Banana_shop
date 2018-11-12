@@ -40,7 +40,7 @@ const oidc = new ExpressOIDC({
   issuer: "https://dev-310068.oktapreview.com/oauth2/default",
   client_id: '0oah94rgl2BfrVS4e0h7',
   client_secret: 'bMglTnK7d8Lyj3iAHS0pRiUO0y-rBiwXA6J4W8oR',
-  redirect_uri: 'http://localhost:3000/users/callback',
+  redirect_uri: 'https://fathomless-tor-48342.herokuapp.com/users/callback',
   scope: "openid profile",
   routes: {
     login: {
@@ -104,14 +104,14 @@ function loginRequired(req, res, next) {
 app.get('/api/products', async (req, res) => {
   try {
     const client = await pool.connect()
-    var result = await client.query('SELECT * FROM cart_table;');   
-   
+    var result = await client.query('SELECT * FROM cart_table;');
+
     if (!result) {
       return res.send('No data found');
       }else{
       result.rows.forEach(row=>{
       console.log(row);
-      }); 
+      });
       }
 
   res.send(result.rows);
@@ -127,9 +127,9 @@ app.get('/api/products', async (req, res) => {
 //******Andy DB*****POST Request*************/
 app.post('/api/products',urlencodedParser, async (req,res)=>{
   try {
-    const client = await pool.connect();  
-    
-    var result = await client.query('insert into cart_table values ('+req.body.cart_id+', '+req.body.item_id+', '+req.body.item_quantity+');' );   
+    const client = await pool.connect();
+
+    var result = await client.query('insert into cart_table values ('+req.body.cart_id+', '+req.body.item_id+', '+req.body.item_quantity+');' );
     if (!result) {
          return res.send("POST Failure");
        } else {
