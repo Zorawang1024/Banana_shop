@@ -105,6 +105,8 @@ function isLoggedIn(req, res, next){
 
 
 //isLoggedIn test
+
+/**
 app.get('/api/logged', async (req, res) => {
   if(!req.user){
     res.send(0);
@@ -115,6 +117,8 @@ app.get('/api/logged', async (req, res) => {
     return 1;
   }
 });
+
+**/
 
 
 
