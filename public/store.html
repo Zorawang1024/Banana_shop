@@ -186,6 +186,16 @@ function Load(){
     }).fail(function(data, status){
     alert(status);
     });
+
+
+      $.ajax({
+      url: "/api/logged",
+      method: "GET"
+    }).done(function(msg) {
+      console.log(msg+ "status");
+    }).fail(function(data, status){
+    alert(status);
+    });
 }
 
 
