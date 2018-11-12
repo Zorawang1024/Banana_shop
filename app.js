@@ -40,7 +40,7 @@ const oidc = new ExpressOIDC({
   issuer: "https://dev-310068.oktapreview.com/oauth2/default",
   client_id: '0oah94rgl2BfrVS4e0h7',
   client_secret: 'bMglTnK7d8Lyj3iAHS0pRiUO0y-rBiwXA6J4W8oR',
-  redirect_uri: 'https://fathomless-tor-48342.herokuapp.com/users/callback',
+  redirect_uri: 'https://fathomless-tor-48342.herokuapp.com/store',
   scope: "openid profile",
   routes: {
     login: {
