@@ -105,8 +105,6 @@ function isLoggedIn(req, res, next){
 
 
 //isLoggedIn test
-
- //*******Andy DB******GET REQUEST*********************/
 app.get('/api/logged', async (req, res) => {
   try {
     const client = await pool.connect()
@@ -120,12 +118,10 @@ app.get('/api/logged', async (req, res) => {
       });
       }
 
-  if(!req.user){
-    res.send('unlogged');
-  }
-  else{
+     if(!req.user){
+       res.send('unlogged');
+      }
     res.send('logged');
-  }
   client.release();
 
   } catch (err) {
