@@ -15,7 +15,7 @@ var ExpressOIDC = require("@okta/oidc-middleware").ExpressOIDC;
 var homeRouter = require('./routes/home');
 var storeRouter = require('./routes/store');
 var cartRouter = require('./routes/cart');
-var usersRouter = require("./routes/users");
+var usersRouter = require('./routes/users');
 
 const { Pool } = require('pg');
 const pool = new Pool({
@@ -46,7 +46,7 @@ const oidc = new ExpressOIDC({
     },
     callback: {
       path: "/users/callback",
-      defaultRedirect: "/"
+      defaultRedirect: "/store.html"
     }
   }
 });
@@ -90,7 +90,7 @@ app.use((req, res, next) => {
 
 function loginRequired(req, res, next) {
   if (!req.user) {
-    return res.status(401).render("unauthenticated");
+    next();
   }
   next();
 }

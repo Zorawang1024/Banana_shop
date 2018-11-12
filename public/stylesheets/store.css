@@ -13,6 +13,10 @@ body {
     width: 20%;
 }
 
+.container{
+  width: 30%
+}
+
 /* Fixed sidenav, full height */
 .sidenav {
     height: 100%;
