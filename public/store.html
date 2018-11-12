@@ -179,9 +179,8 @@ function Load(){
       method: "GET"
     }).done(function(msg) {
     
-      for(i=0; i< msg.length; i++){
-        console.log(msg);
-      }
+      for(i=0; i< msg.length; i++){}
+      console.log(msg);
       
     }).fail(function(data, status){
     alert(status);
