@@ -106,19 +106,13 @@ function isLoggedIn(req, res, next){
 
 //isLoggedIn test
 
-/**
 app.get('/api/logged', async (req, res) => {
   if(!req.user){
-    res.send(0);
-    return 0;
-  }
-  else{
-    res.send(1);
-    return 1;
+    res.send('unlogged');
+  }else{
+    res.send('logged');
   }
 });
-
-**/
 
 
 
