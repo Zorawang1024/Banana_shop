@@ -98,7 +98,7 @@ function loginRequired(req, res, next) {
 
 
 
- //*************GET REQUEST*********************/
+ //*******Andy:DB part******GET REQUEST*********************/
 app.get('/api/products', async (req, res) => {
   try {
     const client = await pool.connect()
@@ -120,6 +120,25 @@ app.get('/api/products', async (req, res) => {
     res.send("Error " + err);
   }
 });
+//*****Andy: DB part******POST Request*************//
+app.post('/api/products',urlencodedParser, async (req,res)=>{
+ try {
+   const client = await pool.connect();
+
+   var result = await client.query("insert into product_table values('"+req.body.user_name+"','"+req.body.task+"', "+req.body.complete+");");   
+   if (!result) {
+        return res.send("POST Failure");
+      } else {
+        console.log("successful");
+      }
+      res.send(result.rows);
+      client.release();
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+ }
+});
+
 
 
 
