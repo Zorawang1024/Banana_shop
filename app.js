@@ -97,7 +97,14 @@ function loginRequired(req, res, next) {
   next();
 }
 
-
+function isLoggedIn(req, res, next){
+  if(!req.user){
+    return 0;
+  }
+  else{
+    return 1;
+  }
+}
 
 
  //*******Andy DB******GET REQUEST*********************/
