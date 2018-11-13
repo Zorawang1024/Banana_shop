@@ -94,17 +94,10 @@ function loginRequired(req, res, next) {
   next();
 }
 
-function isLoggedIn(req, res, next){
-  if(!req.user){
-    return 0;
-  }
-  else{
-    return 1;
-  }
-}
 
 
-//isLoggedIn test
+
+//isLoggedIn(Andy)
 app.get('/api/logged', async (req, res) => {
   try {
     const client = await pool.connect()
@@ -119,10 +112,9 @@ app.get('/api/logged', async (req, res) => {
       }
 
      if(!req.user){
-       res.send('Not logged in');
+       res.send('0');
       }
-    res.send('Logged in');
-    res.send(this.getcurrentUser.getuserLoggedin())
+      res.send('1'); // someone currently logged in
   client.release();
 
   } catch (err) {

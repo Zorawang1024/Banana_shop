@@ -28,7 +28,8 @@
   width: 100%;
   line-height: 100px;
   text-align: center;
-  margin: 2px;
+  margin: 8px;
+  margin-left: 2px;
   display: none;
 }
 
@@ -63,51 +64,50 @@
 </style>
 
 <body  onload="Load()">
- <!--Main NavBar starts-->
- <nav  class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="index.html">Group12</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="index.html">Home </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="store.html">Product <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Contact us
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">022-123-1234</a>
-            <a class="dropdown-item" href="#">banana@gmail.com</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">#Instagram</a>
-          </div>
-          </li>
-          <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Account
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="login.html">Log in</a>
-            <a class="dropdown-item" href="signUp.html">Sign up</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Need Help?</a>
-          </div>
-          </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
-      <!--Main NavBar ends-->
+     <!--Main NavBar starts-->
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">{USER INFO}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="store.html">Product <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Contact us
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">022-XXX-XXXX</a>
+                <a class="dropdown-item" href="#">banana@gmail.com</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">#Instagram</a>
+              </div>
+              </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Account
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="users/login">Log in</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Need Help?</a>
+              </div>
+              </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+          <!--Main NavBar ends-->
 
 
 
@@ -134,8 +134,8 @@
 
      <div class="main">
         <!-- add to cart dialog box here -->
-          <h2>Banana Market :)</h2>
-          <p>Enjoy your shopping experience! Please login to personalise your cart. <a href="cart"><button>View my Cart</button></a></p>
+          <h2>Banana Market       <a href="cart"><button id="cart_btn" >View my Cart</button></a>  </h2>
+          <p>Enjoy your shopping experience! Please login to personalise your cart.</p>
 
       <div id="myBtnContainer">
         <button class="btn active" onclick="filterSelection('all')"> Show all</button>
@@ -163,8 +163,6 @@
               </form>
               </div>
 
-
-
         </div>
 
 
@@ -172,8 +170,10 @@
 
 <!--JS-->
 <script>
+  
+//This will be executed whenever the page is loaded.
+var stat= '';
 function Load(){
-  alert('Welcome! Please login to personalise your cart.');
   $.ajax({
       url: "/api/products",
       method: "GET"
@@ -184,17 +184,22 @@ function Load(){
     alert(status);
     });
 
-
+    
       $.ajax({
       url: "/api/logged",
       method: "GET"
     }).done(function(msg) {
-      console.log(msg+ "status");
+      stat= msg;
+      console.log('login status: '+msg);
+      if(msg=='0'){
+        $('#cart_btn').hide();
+      }
     }).fail(function(data, status){
     alert(status);
     });
-}
 
+    
+}
 
  //main
  $(document).ready(function(e) {
@@ -203,11 +208,15 @@ function Load(){
   //initialise the dialog
   $( "#add-dialog" ).dialog({ modal : true, autoOpen : false });
 
-
+  //ADD TO CART
   $(x).click(function() {
+    if(stat=='1'){
     var name= $(this).parents('p').text(); //search for the targeted item name
     document.getElementById('item_target').innerText= name; //place and show this target name in the dialog
     $("#add-dialog").dialog('open');
+    }
+    //otherwise (not logged in yet):
+    alert('Please log in first to get access to your shopping cart!');
   });
 
 
