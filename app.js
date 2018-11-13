@@ -119,9 +119,9 @@ app.get('/api/logged', async (req, res) => {
       }
 
      if(!req.user){
-       res.send('unlogged');
+       res.send('Not logged in');
       }
-    res.send('logged');
+    res.send('Logged in');
   client.release();
 
   } catch (err) {
