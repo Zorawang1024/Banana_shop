@@ -147,3 +147,7 @@ img.remove_image {
 .basket_item_header {
     background-color: darkgrey;
 }
+
+.quan {
+    -webkit-appearance: none;
+}

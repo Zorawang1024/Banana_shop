@@ -13,12 +13,10 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
-    <script src="js/bootbox.min.js"></script>
-    <script src="javascripts/cart.js"></script>
 
 </head>
 
-<body onload="Load()">
+<body>
 
     <!--Main NavBar starts-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -110,18 +108,18 @@
                         </td>
 
                         <td class="product_price">
-                            <span class="price">$1.99 /kg</span>
+                            <span class="price" id="unit_price" value="1.99">$1.99 /kg</span>
                         </td>
 
                         <td class="product_quantity">
                             <span class="ui-spinner ui-corner-all ui-widget ui-widget-content">
-                                <input type="number" value="1" min="1" max="9999" aria-valuemin="1" aria-valuemax="9999"
-                                    aria-valuenow="1" autocomplete="off" role="spinbutton">
+                                <input type="number" value="17" min="1" max="9999" aria-valuemin="1" aria-valuemax="9999"
+                                    aria-valuenow="1" autocomplete="off" role="spinbutton" id="product_quantity" class="quan">
                             </span>
                         </td>
 
                         <td class="product_price">
-                            <span class="price">$1.99</span>
+                            $1.99
                         </td>
 
                         <td>
@@ -133,68 +131,68 @@
                     </tr>
                     <tr id="basket_item_6221779" data-additional="" data-additional-generated="false">
 
-                            <td class="product_img">
-                                <a href="**PRODUCT LINK**"><img src="./images/Banana-Cartoon.png" class="product_image"></a>
-                            </td>
-    
-                            <td class="product_name">
-                                <a href="**PRODUCT LINK**" class="product_name link">Green Banana</a>
-                            </td>
-    
-                            <td class="product_price">
-                                <span class="price">$1.99 /kg</span>
-                            </td>
-    
-                            <td class="product_quantity">
-                                <span class="ui-spinner ui-corner-all ui-widget ui-widget-content">
-                                    <input type="number" value="1" min="1" max="9999" aria-valuemin="1" aria-valuemax="9999"
-                                        aria-valuenow="1" autocomplete="off" role="spinbutton">
-                                </span>
-                            </td>
-    
-                            <td class="product_price">
-                                <span class="price">$1.99</span>
-                            </td>
-    
-                            <td>
-                                <button type="submit" class="basket_item_remove" name="remove" id="remove" value="6221779">
-                                    <img src="./images/Remove_Item_icon.png" title="Remove from cart" class="remove_image">
-                                </button>
-                            </td>
-    
-                        </tr>
-                        <tr id="basket_item_6221780" data-additional="" data-additional-generated="false">
+                        <td class="product_img">
+                            <a href="**PRODUCT LINK**"><img src="./images/Banana-Cartoon.png" class="product_image"></a>
+                        </td>
 
-                                <td class="product_img">
-                                    <a href="**PRODUCT LINK**"><img src="./images/Banana-Cartoon.png" class="product_image"></a>
-                                </td>
-        
-                                <td class="product_name">
-                                    <a href="**PRODUCT LINK**" class="product_name link">Brown Banana</a>
-                                </td>
-        
-                                <td class="product_price">
-                                    <span class="price">$1.99 /kg</span>
-                                </td>
-        
-                                <td class="product_quantity">
-                                    <span class="ui-spinner ui-corner-all ui-widget ui-widget-content">
-                                        <input type="number" value="1" min="1" max="9999" aria-valuemin="1" aria-valuemax="9999"
-                                            aria-valuenow="1" autocomplete="off" role="spinbutton">
-                                    </span>
-                                </td>
-        
-                                <td class="product_price">
-                                    <span class="price">$1.99</span>
-                                </td>
-        
-                                <td>
-                                    <button type="submit" class="basket_item_remove" name="remove" id="remove" value="6221780">
-                                        <img src="./images/Remove_Item_icon.png" title="Remove from cart" class="remove_image">
-                                    </button>
-                                </td>
-        
-                            </tr>
+                        <td class="product_name">
+                            <a href="**PRODUCT LINK**" class="product_name link">Green Banana</a>
+                        </td>
+
+                        <td class="product_price">
+                            <span class="price">$1.99 /kg</span>
+                        </td>
+
+                        <td class="product_quantity">
+                            <span class="ui-spinner ui-corner-all ui-widget ui-widget-content">
+                                <input type="number" value="17" min="1" max="9999" aria-valuemin="1" aria-valuemax="9999"
+                                    aria-valuenow="1" autocomplete="off" role="spinbutton" id="product_quantity" class="quan">
+                            </span>
+                        </td>
+
+                        <td class="product_price">
+                            $1.99
+                        </td>
+
+                        <td>
+                            <button type="submit" class="basket_item_remove" name="remove" id="remove" value="6221779">
+                                <img src="./images/Remove_Item_icon.png" title="Remove from cart" class="remove_image">
+                            </button>
+                        </td>
+
+                    </tr>
+                    <tr id="basket_item_6221780" data-additional="" data-additional-generated="false">
+
+                        <td class="product_img">
+                            <a href="**PRODUCT LINK**"><img src="./images/Banana-Cartoon.png" class="product_image"></a>
+                        </td>
+
+                        <td class="product_name">
+                            <a href="**PRODUCT LINK**" class="product_name link">Brown Banana</a>
+                        </td>
+
+                        <td class="product_price">
+                            <span class="price">$1.99 /kg</span>
+                        </td>
+
+                        <td class="product_quantity">
+                            <span class="ui-spinner ui-corner-all ui-widget ui-widget-content">
+                                <input type="number" value="17" min="1" max="9999" aria-valuemin="1" aria-valuemax="9999"
+                                    aria-valuenow="1" autocomplete="off" role="spinbutton" id="product_quantity" class="quan">
+                            </span>
+                        </td>
+
+                        <td id="final_product_price">
+                            $1.99
+                        </td>
+
+                        <td>
+                            <button type="submit" class="basket_item_remove" name="remove" id="remove" value="6221780">
+                                <img src="./images/Remove_Item_icon.png" title="Remove from cart" class="remove_image">
+                            </button>
+                        </td>
+
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -224,9 +222,16 @@
 
         $('#empty_cart').hide();
 
-        $('.basket_item_remove').on('click', function() {
+        $(".quan:input").change(function(){
+            /* alert((this).value); */
+            var row = $(this).closest('tr').children().get(4);
+            row.firstChild.textContent = '$'+(this).value*1.99;
+            //document.getElementById("final_product_price").remove();
+        });        
+
+        $('.basket_item_remove').on('click', function () {
             $(this).closest('tr').remove();
-            if($('#cart_table tbody').children().length == 0) {
+            if ($('#cart_table tbody').children().length == 0) {
                 $('#empty_cart').show();
                 $('#cart_table').parent().toggle();
             }
