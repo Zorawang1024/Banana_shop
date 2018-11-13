@@ -190,8 +190,8 @@ function Load(){
       method: "GET"
     }).done(function(msg) {
       console.log('login status: '+msg);
-      if(msg=='1'){
-        $('#cart_btn').innerHTML='123';
+      if(msg=='0'){
+        $('#cart_btn').hide();
       }
     }).fail(function(data, status){
     alert(status);
