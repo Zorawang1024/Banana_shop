@@ -171,8 +171,8 @@
 <script>
   
 //This will be executed whenever the page is loaded.
+var stat= '';
 function Load(){
-  var stat= '';
   $.ajax({
       url: "/api/products",
       method: "GET"
@@ -188,7 +188,7 @@ function Load(){
       url: "/api/logged",
       method: "GET"
     }).done(function(msg) {
-      status= msg;
+      stat= msg;
       console.log('login status: '+msg);
       if(msg=='0'){
         $('#cart_btn').hide();
