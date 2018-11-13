@@ -169,14 +169,10 @@
 
 <!--JS-->
 <script>
-
- //main
- $(document).ready(function(e) {
-
-
-  var status='';
+  
 //This will be executed whenever the page is loaded.
 function Load(){
+  var stat= '';
   $.ajax({
       url: "/api/products",
       method: "GET"
@@ -203,13 +199,17 @@ function Load(){
 
     
 }
+
+ //main
+ $(document).ready(function(e) {
+
   var x= document.getElementsByClassName('add-to-cart');
   //initialise the dialog
   $( "#add-dialog" ).dialog({ modal : true, autoOpen : false });
 
   //ADD TO CART
   $(x).click(function() {
-    if(status=='1'){
+    if(stat=='1'){
     var name= $(this).parents('p').text(); //search for the targeted item name
     document.getElementById('item_target').innerText= name; //place and show this target name in the dialog
     $("#add-dialog").dialog('open');
