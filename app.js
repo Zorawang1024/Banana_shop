@@ -122,6 +122,7 @@ app.get('/api/logged', async (req, res) => {
        res.send('Not logged in');
       }
     res.send('Logged in');
+    res.send(this.getcurrentUser.getuserLoggedin())
   client.release();
 
   } catch (err) {
