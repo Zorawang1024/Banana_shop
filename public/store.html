@@ -133,8 +133,8 @@
 
      <div class="main">
         <!-- add to cart dialog box here -->
-          <h2>Banana Market</h2>
-          <p>Enjoy your shopping experience! Please login to personalise your cart. <a href="cart"><button>View my Cart</button></a></p>
+          <h2>Banana Market       <a href="cart"><button id="cart_btn">View my Cart</button></a>  </h2>
+          <p>Enjoy your shopping experience! Please login to personalise your cart.</p>
 
       <div id="myBtnContainer">
         <button class="btn active" onclick="filterSelection('all')"> Show all</button>
@@ -171,6 +171,7 @@
 
 <!--JS-->
 <script>
+//This will be executed whenever the page is loaded.
 function Load(){
   alert('Welcome! Please login to personalise your cart.');
   $.ajax({
@@ -183,15 +184,20 @@ function Load(){
     alert(status);
     });
 
-
+    
       $.ajax({
       url: "/api/logged",
       method: "GET"
     }).done(function(msg) {
       console.log('login status: '+msg);
+      if(msg=='1'){
+        $('#cart_btn').innerHTML='123';
+      }
     }).fail(function(data, status){
     alert(status);
     });
+
+    
 }
 
 

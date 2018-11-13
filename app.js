@@ -97,7 +97,7 @@ function loginRequired(req, res, next) {
 
 
 
-//isLoggedIn (Andy)
+//isLoggedIn(Andy)
 app.get('/api/logged', async (req, res) => {
   try {
     const client = await pool.connect()
