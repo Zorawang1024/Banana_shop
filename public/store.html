@@ -169,6 +169,8 @@
 
 <!--JS-->
 <script>
+
+var status='';
 //This will be executed whenever the page is loaded.
 function Load(){
   $.ajax({
@@ -186,6 +188,7 @@ function Load(){
       url: "/api/logged",
       method: "GET"
     }).done(function(msg) {
+      status= msg;
       console.log('login status: '+msg);
       if(msg=='0'){
         $('#cart_btn').hide();
@@ -200,16 +203,19 @@ function Load(){
 
  //main
  $(document).ready(function(e) {
-
   var x= document.getElementsByClassName('add-to-cart');
   //initialise the dialog
   $( "#add-dialog" ).dialog({ modal : true, autoOpen : false });
 
-
+  //ADD TO CART
   $(x).click(function() {
+    if(status=='1'){
     var name= $(this).parents('p').text(); //search for the targeted item name
     document.getElementById('item_target').innerText= name; //place and show this target name in the dialog
     $("#add-dialog").dialog('open');
+    }
+    //otherwise (not logged in yet):
+    alert('Please log in first to get access to your shopping cart!');
   });
 
 
