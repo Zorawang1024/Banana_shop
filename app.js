@@ -112,9 +112,9 @@ app.get('/api/logged', async (req, res) => {
       }
 
      if(!req.user){
-       res.send(0);
+       res.send('0');
       }
-      res.send(1); // someone currently logged in
+      res.send('1'); // someone currently logged in
   client.release();
 
   } catch (err) {
