@@ -170,7 +170,11 @@
 <!--JS-->
 <script>
 
-var status='';
+ //main
+ $(document).ready(function(e) {
+
+
+  var status='';
 //This will be executed whenever the page is loaded.
 function Load(){
   $.ajax({
@@ -199,10 +203,6 @@ function Load(){
 
     
 }
-
-
- //main
- $(document).ready(function(e) {
   var x= document.getElementsByClassName('add-to-cart');
   //initialise the dialog
   $( "#add-dialog" ).dialog({ modal : true, autoOpen : false });
