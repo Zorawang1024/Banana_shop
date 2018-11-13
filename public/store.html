@@ -188,7 +188,7 @@ function Load(){
       url: "/api/logged",
       method: "GET"
     }).done(function(msg) {
-      console.log(msg+ "status");
+      console.log('login status: '+msg);
     }).fail(function(data, status){
     alert(status);
     });
